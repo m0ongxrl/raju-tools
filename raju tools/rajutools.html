@@ -159,7 +159,8 @@
         /* Media Queries for Mobile */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: wrap;
                 height: auto;
                 width: 100%;
                 overflow: auto;
@@ -168,7 +169,7 @@
 
             .frame {
                 margin: 10px 0;
-                flex: 1 !important;
+                flex: 1 1 100%;
             }
         }
 
@@ -183,12 +184,49 @@
             .container {
                 width: 100%;
                 height: auto;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+            .frame {
+                margin: 10px 0;
+                width: 100%;
+            }
+              /* Media Queries for Mobile */
+        @media (max-width: 768px) {
+            .container {
                 flex-direction: column;
+                width: 100%;
+                height: auto;
+                overflow: auto;
+                margin: 10px 0;
             }
 
             .frame {
                 margin: 10px 0;
                 width: 100%;
+                max-width: none;
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
+
+            .frame.active {
+                width: calc(100% - 20px);
+                height: calc(100vh - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 3rem;
+            }
+
+            .container {
+                flex-direction: column;
+                width: 100%;
+                height: auto;
+                overflow: auto;
             }
 
             h2 {
@@ -203,6 +241,101 @@
                 grid-template-columns: 1fr;
             }
         }
+    .owner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gold;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+    display: none;
+}
+
+.owner-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gold;
+    padding: 20px;
+    text-align: center;
+}
+
+ .owner-image {
+   
+    max-width: 300px; /* Adjust max-width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    width: 200%;
+    height: 200%;
+    object-fit: cover;
+}
+
+.owner-image:hover {
+    transform: scale(1.05);
+}
+
+.owner-details {
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.owner-details p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.owner-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: gold;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .owner-info {
+        flex-direction: column;
+    }
+
+    .owner-image {
+        max-width: 300px;  /*Adjust for smaller screens */
+        
+    }
+
+    .owner-details {
+        width: 100%;
+    }
+    .content {
+  padding: 20px;
+  text-align: center;
+  display: none; /* Added display: none; */
+  position: relative;
+  z-index: 1;
+  display: none;
+}
+
+}
+
+@media (max-width: 480px) {
+    .owner-details p {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+
+    .owner-name {
+        font-size: 1.5rem;
+    }
+}
+
+
+        
+
     </style>
 </head>
 <body>
@@ -258,11 +391,24 @@
         </div>
         <div class="frame" id="frame2" style="background-image: url('https://media.istockphoto.com/id/475273340/photo/collections-of-jewelry-gems-on-black.jpg?s=1024x1024&w=is&k=20&c=S6joKR36exUIlGgrlMgpFnGjMRrvx-ZCpaImuXV-1P0=');">
             <div class="overlay-text">Meet the Owner</div>
-            <div class="content">
+    <div class="content owner-content">
+        <div class="owner-info">
+            <img src="C:\Users\hp\OneDrive\Pictures\Saved Pictures\TXT_Taehyun_The_Name_Chapter_Temptation_concept_photo_2.webp" alt="Yaseen Malik" class="owner-image" >
+            <div class="owner-details">
                 <h2>Owner Details</h2>
-                <p>Learn more about the shop owner.</p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/8668876678">8668876678</a></p>
+                <p><strong>Email:</strong> <a href="mailto:example@example.com">example@example.com</a></p>
+                <p><strong>Address:</strong> Al - Raheman Complex, Near Lal Bada School, Baghban Galli, Sarafa No.2, NANDED. 431 604(M.S.)</p>
+                <p><strong>GPay/PhonePe:</strong> 9028868664</p>
+                <p><strong>GSTIN:</strong> 27BPPPS1932A1ZV</p>
+                <div class="owner-name">Yaseen Malik</div>
             </div>
         </div>
+    </div>
+
+</div>
+
+
         <div class="frame" id="frame3" style="background-image: url('https://media.istockphoto.com/id/475273340/photo/collections-of-jewelry-gems-on-black.jpg?s=1024x1024&w=is&k=20&c=S6joKR36exUIlGgrlMgpFnGjMRrvx-ZCpaImuXV-1P0=');">
             <div class="overlay-text">Discover Our Tools</div>
             <div class="content">
